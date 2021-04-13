@@ -4,17 +4,21 @@
 POST {{api}}/dealers
 Content-Type: application/json
 
-{"dlrName":"Kia Altaria", "dlrCd":"B20VAAAS01", "adrStateNm":"Aguascalientes", "latitude":"19.420824613045703", "longitude":"-99.08221819836864"}
+{"dlrName":"Kia Altaria3", "dlrCd":"B20VAAAS02", "adrStateNm":"Aguascalientes", "latitude":"19.420824613045703", "longitude":"-99.08221819836864"}
 
 ### RETRIEVE ALL
 GET {{api}}/dealers
 
 ### RETRIEVE
-GET {{api}}/dealers/1
+GET {{api}}/dealers/60752f7d16106e15c70caaf2
 
 
 ### UPDATE
-PUT {{api}}/dealers/1
+PUT {{api}}/dealers/6076221d6c66070534b65de0
+Content-Type: application/json
+
+{"dlrName":"Kia Innova", "dlrCd":"B20INO894", "adrStateNm":"Aguascalientes", "latitude":"19.420824613045703", "longitude":"-99.08221819836864"}
+
 
 ### DELETE
-DELETE {{api}}/dealers/1
+DELETE {{api}}/dealers/60762494dc8bf705fa102e03
