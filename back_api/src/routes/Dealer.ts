@@ -1,19 +1,20 @@
 import {Schema, model} from 'mongoose';
 
 const dealerSchema = new Schema({
-    name : {
+    dlrName : {
         type: String,
         required: true,
         trim: true
     },
 
-    dealerCode : {
+    dlrCd : {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
 
-    state : {
+    adrStateNm : {
         type: String,
         trim: true
     },
@@ -27,9 +28,10 @@ const dealerSchema = new Schema({
         type: String,
         trim: true
     }, 
+},
+{
     versionKey: false,
-    timestamp: true
-
+    timestamps: true
 });
 
 export default model('Dealer', dealerSchema);

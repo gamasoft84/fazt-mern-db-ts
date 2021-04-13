@@ -4,6 +4,8 @@ import config from './config'
 (async () => {
 
     try {
+        console.log('CONFIGURANDO');
+        
         const mongooseOptions: ConnectOptions = {
             useUnifiedTopology:true,
             useNewUrlParser:true,
@@ -13,7 +15,7 @@ import config from './config'
         const db = await mongoose.connect(`mongodb://${config.MONGO_HOST}/${config.MONGO_DATABASE}`, mongooseOptions );
         console.log('Database is connected:', db.connection.name);
     } catch (error) {
-        console.error();
+        console.error(error);
     }
 
 })();

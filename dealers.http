@@ -1,0 +1,20 @@
+@api = http://localhost:3000
+
+### CREATE
+POST {{api}}/dealers
+Content-Type: application/json
+
+{"dlrName":"Kia Altaria", "dlrCd":"B20VAAAS01", "adrStateNm":"Aguascalientes", "latitude":"19.420824613045703", "longitude":"-99.08221819836864"}
+
+### RETRIEVE ALL
+GET {{api}}/dealers
+
+### RETRIEVE
+GET {{api}}/dealers/1
+
+
+### UPDATE
+PUT {{api}}/dealers/1
+
+### DELETE
+DELETE {{api}}/dealers/1
