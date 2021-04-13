@@ -1,0 +1,55 @@
+npm init -y
+npm i express mongoose morgan dotenv cors 
+//ts-node-dev (semilar a nodemon, pero mas fazt y mas easy configurar)
+npm i -D typescript @types/express @types/morgan @types/mongoose @types/cors @types/node ts-node-dev
+
+
+Configurar TS
+---------------
+npx tsc --init         
+    Confir tsconfig.json
+    "target": "es6",
+     "outDir": "./dist"
+     "rootDir": "./src",
+
+
+Package.json
+---------------
+
+npm run dev
+"scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev src/index.ts"
+  },
+
+instaed 
+npx tsc ./src/index.ts
+
+
+TIPS
+-----
+Instalar snippets
+* ES7 React/Redux/GraphQL/React-Native snippets
+    - imp
+
+
+
+ESTRUCTURA
+----------
+routes
+   Modelo
+   controller
+   routes
+
+
+BASE DE DATOS en MAC M1
+--------------
+INSTALL HOMBREW
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew tap mongodb/brew
+brew install mongodb-community
+brew services start mongodb-community
+
+mongod --version
+mongo
+  show dbs
