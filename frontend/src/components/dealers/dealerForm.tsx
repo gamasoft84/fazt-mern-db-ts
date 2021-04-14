@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-const dealerForm = () => {
+const DealerForm = () => {
     return (
         <div>
             Form of Dealer
@@ -8,4 +8,4 @@ const dealerForm = () => {
     )
 }
 
-export default dealerForm;
+export default DealerForm; 

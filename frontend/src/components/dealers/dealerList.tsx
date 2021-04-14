@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const dealerList = () => {
+const DealerList = () => {
+
+    useEffect(() => {
+        console.log('works');    
+    }, [])
+
+
     return (
         <div>
             <h3>Dealer List</h3>
@@ -8,4 +14,4 @@ const dealerList = () => {
     )
 }
 
-export default dealerList;
+export default DealerList; 

@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import dealerList from './components/dealers/dealerList';
-import dealerForm from './components/dealers/dealerForm';
+import DealerList from './components/dealers/DealerForm';
+import DealerForm from './components/dealers/DealerList';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={dealerList} exact/>
-        <Route path="/new-dealer" component={dealerForm}/>
+        <Route path="/" component={DealerList} exact/>
+        <Route path="/new-dealer" component={DealerForm}/>
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,
