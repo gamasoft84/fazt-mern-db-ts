@@ -1,15 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import * as dealerService from './DealerService';
+import {Dealer} from './Dealer';
 
 const DealerList = () => {
 
+const [dealers, setDealers] = useState<Dealer[]>([]);
+
+    const loadServices = async () =>{
+        const res = await dealerService.loadDealers();
+        setDealers(res.data);
+    }
+
     useEffect(() => {
-        console.log('works');    
+        loadServices();
     }, [])
 
 
     return (
         <div>
             <h3>Dealer List</h3>
+            {dealers.map( (d) => {
+                return <h4 key={d.dlrCd}>{d.dlrCd}</h4>
+            })}
         </div>
     )
 }

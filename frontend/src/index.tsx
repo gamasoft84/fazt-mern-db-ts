@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import DealerList from './components/dealers/DealerForm';
-import DealerForm from './components/dealers/DealerList';
+import DealerForm from './components/dealers/DealerForm';
+import DealerList from './components/dealers/DealerList';
 
 ReactDOM.render(
   <React.StrictMode>
