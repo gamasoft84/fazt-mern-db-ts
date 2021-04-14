@@ -2,10 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import dealerList from './components/dealers/dealerList';
+import dealerForm from './components/dealers/dealerForm';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Welcome</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={dealerList} exact/>
+        <Route path="/new-dealer" component={dealerForm}/>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
