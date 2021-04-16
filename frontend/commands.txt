@@ -5,10 +5,20 @@ npm i react-router-dom
 npm i @types/react-router-dom -D
 
 npm i axios
-
+npm i bootswatch
 
 
 
 SNIPPETS
 ----------
 rafce: React Arrow Functional component export
+
+
+TIPS
+--------------
+HTML to JSX Compiler
+https://magic.reactjs.net/htmltojsx.htm
+
+
+ml-auto para alinear hasta la derecha 'Create new Dealer'
+usar .container para centrar.
