@@ -1,8 +1,8 @@
 export interface Dealer{
-    _id: string,
+    _id?: string,
     dlrName: string,
     dlrCd: string,
-    adrStateNm: string,
-    latitude: string,
-    longitude: string,
+    adrStateNm?: string,
+    latitude?: string,
+    longitude?: string,
 }

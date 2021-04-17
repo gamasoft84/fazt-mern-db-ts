@@ -1,3 +1,7 @@
+SOURCE
+---------
+https://www.youtube.com/watch?v=wOLo-B7mrZM&t=3367s
+
 npx create-react-app frontend --template typescript
 npm start 
 
@@ -6,6 +10,9 @@ npm i @types/react-router-dom -D
 
 npm i axios
 npm i bootswatch
+
+npm install --save react-toastify
+npm install --save @types/react-toastify   (optional)
 
 
 
@@ -22,3 +29,15 @@ https://magic.reactjs.net/htmltojsx.htm
 
 ml-auto para alinear hasta la derecha 'Create new Dealer'
 usar .container para centrar.
+
+Chrome, Instalar React Developer Tools, para ver el estado de los elementos.
+
+
+
+
+
+
+
+RULES BOOSTRAP
+---------------------
+Container > Row > Col

@@ -1,3 +1,8 @@
+SOURCE
+--------
+https://www.youtube.com/watch?v=_RZ-T6TxP7w
+
+
 npm init -y
 npm i express mongoose morgan dotenv cors 
 //ts-node-dev (semilar a nodemon, pero mas fazt y mas easy configurar)

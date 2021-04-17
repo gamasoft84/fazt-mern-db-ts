@@ -1,11 +1,104 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { Dealer } from "./Dealer";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router";
+import * as dealerService from "./DealerService";
 
 const DealerForm = () => {
-    return (
-        <div>
-            Form of Dealer
-        </div>
-    )
-}
+  const history = useHistory();
+  const initialState = {
+    dlrName: '',
+    dlrCd: '',
+    adrStateNm: '',
+    latitude: '',
+    longitude: ''
+  };
 
-export default DealerForm; 
+  type InputChange = ChangeEvent<HTMLInputElement>;
+
+  const [dealer, setDealer] = useState<Dealer>(initialState);
+
+  const handleInputChange = (e: InputChange) => {
+    const { name, value } = e.target;
+    setDealer({ ...dealer, [name]: value });
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const resp = await dealerService.createDealer(dealer);
+    setDealer(initialState);
+    toast.success("New Dealer add");
+    console.log("ID:", resp.data._id);
+    // history.push('/');
+  };
+
+  return (
+    <div>
+      <div className="row">
+        <div className="col-md-4 offset-md-4">
+          <div className="card">
+            <div className="card-body">
+              <h3>New Dealer</h3>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="Dealer Name"
+                    className="form-control"
+                    autoFocus
+                    onChange={handleInputChange}
+                    name="dlrName"
+                    value={dealer.dlrName}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="Dealer Code"
+                    className="form-control"
+                    onChange={handleInputChange}
+                    name="dlrCd"
+                    value={dealer.dlrCd}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="State"
+                    className="form-control"
+                    onChange={handleInputChange}
+                    name="adrStateNm"
+                    value={dealer.adrStateNm}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="Latitutude"
+                    className="form-control"
+                    onChange={handleInputChange}
+                    name="latitude"
+                    value={dealer.latitude}
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="Longitude"
+                    className="form-control"
+                    onChange={handleInputChange}
+                    name="longitude"
+                    value={dealer.longitude}
+                  />
+                </div>
+                <button className="btn btn-primary">Create Dealer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DealerForm;

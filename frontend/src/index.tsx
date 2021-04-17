@@ -5,18 +5,23 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import DealerForm from './components/dealers/DealerForm';
 import DealerList from './components/dealers/DealerList';
-import 'bootswatch/dist/pulse/bootstrap.min.css';
 import Navbar from './components/Navbar/Navbar';
+import {ToastContainer} from 'react-toastify'
+
+import 'bootswatch/dist/pulse/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter> 
     <Navbar/>
-     <div className="container">
+     <div className="container p-4">
       <Switch>
           <Route path="/" component={DealerList} exact/>
           <Route path="/new-dealer" component={DealerForm}/>
         </Switch>
+        <ToastContainer/>
      </div>
     </BrowserRouter>
   </React.StrictMode>,
