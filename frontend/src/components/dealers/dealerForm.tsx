@@ -29,7 +29,7 @@ const DealerForm = () => {
     setDealer(initialState);
     toast.success("New Dealer add");
     console.log("ID:", resp.data._id);
-    // history.push('/');
+    history.push('/');
   };
 
   return (
