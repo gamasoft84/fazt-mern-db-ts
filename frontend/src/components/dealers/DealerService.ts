@@ -4,7 +4,7 @@ import axios from 'axios';
 const API = 'http://localhost:3001';
 
 export const loadDealers = async() =>{
-    return await axios.get(`${API}/dealers`);
+    return await axios.get<Dealer[]>(`${API}/dealers`);
 }
 
 export const createDealer = async(dealer: Dealer) =>{

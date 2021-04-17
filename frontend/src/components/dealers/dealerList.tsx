@@ -7,13 +7,22 @@ const DealerList = () => {
 
 const [dealers, setDealers] = useState<Dealer[]>([]);
 
-    const loadServices = async () =>{
+    const loadDealers = async () =>{
         const res = await dealerService.loadDealers();
-        setDealers(res.data);
+        const formatedDealers = res.data.map(d => {
+             return{
+                 ...d,
+                 createdAt: d.createdAt ? new Date(d.createdAt) : new Date(),
+                 updatedAt: d.updatedAt ? new Date(d.updatedAt) : new Date(),
+             }
+        })
+        .sort((a,b) => b.createdAt.getTime() - a.createdAt.getTime());
+
+        setDealers(formatedDealers);
     }
 
     useEffect(() => {
-        loadServices();
+        loadDealers();
     }, [])
 
 
