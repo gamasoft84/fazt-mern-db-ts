@@ -5,4 +5,5 @@ export interface Dealer{
     adrStateNm?: string,
     latitude?: string,
     longitude?: string,
+    url?: string
 }

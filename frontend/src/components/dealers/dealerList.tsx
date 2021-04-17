@@ -18,10 +18,9 @@ const [dealers, setDealers] = useState<Dealer[]>([]);
 
 
     return (
-        <div>
-            <h3>Dealer List</h3>
+        <div className="row">
             {dealers.map( (d) => {
-                return <DealerItem dealer={d}/>
+                return <DealerItem dealer={d}  key={d.dlrCd}/>
             })}
         </div>
     )
