@@ -61,7 +61,7 @@ const DealerForm = () => {
         <div className="col-md-4 offset-md-4">
           <div className="card">
             <div className="card-body">
-              <h3>New Dealer</h3>
+              <h3>Dealer</h3>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <input
@@ -97,7 +97,7 @@ const DealerForm = () => {
                 <div className="form-group">
                   <input
                     type="text"
-                    placeholder="Latitutude"
+                    placeholder="Latitude"
                     className="form-control"
                     onChange={handleInputChange}
                     name="latitude"
