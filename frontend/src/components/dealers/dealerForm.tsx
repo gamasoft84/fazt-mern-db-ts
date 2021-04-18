@@ -1,11 +1,13 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Dealer } from "./Dealer";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import * as dealerService from "./DealerService";
 
 const DealerForm = () => {
   const history = useHistory();
+  const params = useParams<Params>();
+  
   const initialState = {
     dlrName: '',
     dlrCd: '',
@@ -14,9 +16,25 @@ const DealerForm = () => {
     longitude: ''
   };
 
-  type InputChange = ChangeEvent<HTMLInputElement>;
-
   const [dealer, setDealer] = useState<Dealer>(initialState);
+
+  const getDealer = async (id: string) => {
+    const res = await dealerService.getDealer(id);
+    console.log(res);
+    setDealer(res.data);
+    
+  }
+
+  useEffect(() => {
+   if(params.id){
+     getDealer(params.id);
+   }
+  }, [])
+
+  type InputChange = ChangeEvent<HTMLInputElement>;
+  interface Params {
+    id: string;
+  }
 
   const handleInputChange = (e: InputChange) => {
     const { name, value } = e.target;
@@ -25,10 +43,16 @@ const DealerForm = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const resp = await dealerService.createDealer(dealer);
+    
+    if(!params.id){
+      const resp = await dealerService.createDealer(dealer);
+      toast.success("New Dealer add");
+      console.log("ID:", resp.data._id);
+    }else{
+      await dealerService.updateDealer(params.id, dealer);
+      toast.success("Updated Dealer");
+    }
     setDealer(initialState);
-    toast.success("New Dealer add");
-    console.log("ID:", resp.data._id);
     history.push('/');
   };
 
@@ -91,7 +115,12 @@ const DealerForm = () => {
                     value={dealer.longitude}
                   />
                 </div>
-                <button className="btn btn-primary">Create Dealer</button>
+                {
+                  params.id ? 
+                  <button className="btn btn-info">Update Dealer</button> :
+                  <button className="btn btn-primary">Create Dealer</button>
+                }
+                
               </form>
             </div>
           </div>

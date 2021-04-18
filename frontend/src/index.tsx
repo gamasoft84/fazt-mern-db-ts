@@ -20,6 +20,7 @@ ReactDOM.render(
       <Switch>
           <Route path="/" component={DealerList} exact/>
           <Route path="/new-dealer" component={DealerForm}/>
+          <Route path="/update/:id" component={DealerForm}/>
         </Switch>
         <ToastContainer/>
      </div>

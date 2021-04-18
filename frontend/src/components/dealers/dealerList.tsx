@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import * as dealerService from './DealerService';
 import {Dealer} from './Dealer';
 import DealerItem from './DealerItem';
+import ReactPlayer from 'react-player';
 
 const DealerList = () => {
 
 const [dealers, setDealers] = useState<Dealer[]>([]);
 
-    const loadDealers = async () =>{
-        const res = await dealerService.loadDealers();
+    const getDealers = async () =>{
+        const res = await dealerService.getDealers();
         const formatedDealers = res.data.map(d => {
              return{
                  ...d,
@@ -22,7 +23,7 @@ const [dealers, setDealers] = useState<Dealer[]>([]);
     }
 
     useEffect(() => {
-        loadDealers();
+        getDealers();
     }, [])
 
 
@@ -31,6 +32,9 @@ const [dealers, setDealers] = useState<Dealer[]>([]);
             {dealers.map( (d) => {
                 return <DealerItem dealer={d}  key={d.dlrCd}/>
             })}
+            <div className="embed-responsive embed-responsive-16by9">
+                <ReactPlayer url="https://www.youtube.com/watch?v=Xy4EC8q1jzY" />
+            </div>
         </div>
     )
 }

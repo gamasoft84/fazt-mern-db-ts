@@ -3,10 +3,18 @@ import axios from 'axios';
 
 const API = 'http://localhost:3001';
 
-export const loadDealers = async() =>{
+export const getDealers = async() =>{
     return await axios.get<Dealer[]>(`${API}/dealers`);
 }
 
 export const createDealer = async(dealer: Dealer) =>{
     return await axios.post(`${API}/dealers`, dealer);
+}
+
+export const getDealer = async(id: string) =>{
+    return await axios.get<Dealer>(`${API}/dealers/${id}`);
+}
+
+export const updateDealer = async(id: string, dealer: Dealer) =>{
+    return await axios.put<Dealer>(`${API}/dealers/${id}`, dealer);
 }
