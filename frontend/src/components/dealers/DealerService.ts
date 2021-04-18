@@ -18,3 +18,7 @@ export const getDealer = async(id: string) =>{
 export const updateDealer = async(dealer: Dealer) =>{
     return await axios.put<Dealer>(`${API}/dealers/${dealer._id}`, dealer);
 }
+
+export const deleteDealer = async(id: string) =>{
+    return await axios.delete(`${API}/dealers/${id}`);
+}
