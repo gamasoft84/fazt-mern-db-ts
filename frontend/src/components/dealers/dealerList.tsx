@@ -32,7 +32,7 @@ const [dealers, setDealers] = useState<Dealer[]>([]);
             {dealers.map( (d) => {
                 return <DealerItem dealer={d}  key={d.dlrCd} getDealers={getDealers}/>
             })}
-            <div className="embed-responsive embed-responsive-16by9">
+            <div className="embed-responsive embed-responsive-16by9 mt-5">
                 <ReactPlayer url="https://www.youtube.com/watch?v=Xy4EC8q1jzY" />
             </div>
         </div>

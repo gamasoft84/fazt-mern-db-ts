@@ -43,3 +43,8 @@ Chrome, Instalar React Developer Tools, para ver el estado de los elementos.
 RULES BOOSTRAP
 ---------------------
 Container > Row > Col
+
+
+REFERENCES TYPESCRIPT
+---------------------
+https://www.typescriptlang.org/docs/handbook/react.html
