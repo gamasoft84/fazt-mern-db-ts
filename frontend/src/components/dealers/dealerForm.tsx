@@ -47,9 +47,8 @@ const DealerForm = () => {
     if(!params.id){
       const resp = await dealerService.createDealer(dealer);
       toast.success("New Dealer add");
-      console.log("ID:", resp.data._id);
     }else{
-      await dealerService.updateDealer(params.id, dealer);
+      await dealerService.updateDealer(dealer);
       toast.success("Updated Dealer");
     }
     setDealer(initialState);

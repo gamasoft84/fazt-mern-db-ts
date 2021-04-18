@@ -15,6 +15,6 @@ export const getDealer = async(id: string) =>{
     return await axios.get<Dealer>(`${API}/dealers/${id}`);
 }
 
-export const updateDealer = async(id: string, dealer: Dealer) =>{
-    return await axios.put<Dealer>(`${API}/dealers/${id}`, dealer);
+export const updateDealer = async(dealer: Dealer) =>{
+    return await axios.put<Dealer>(`${API}/dealers/${dealer._id}`, dealer);
 }
